@@ -1,0 +1,22 @@
+// specify the version of the proto file
+syntax = "proto3";
+
+// specify the package name
+package timeservice;
+
+// The time request message contains no fields. 
+// It's just used as a placeholder to make a call to the server
+message TimeRequest {
+}
+
+// The time response message contains the server time in a string format
+message TimeResponse {
+  string server_time = 1;
+}
+
+// The time service definition.
+service TimeService {
+  // GetServerTime is a simple RPC that takes a TimeRequest and 
+  // returns a TimeResponse with the current server time.
+  rpc GetServerTime (TimeRequest) returns (TimeResponse);
+}
